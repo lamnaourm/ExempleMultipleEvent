@@ -9,7 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 
-public class Main extends JFrame implements ActionListener {
+public class Main extends JFrame {
 
 	private JPanel contentPane;
 
@@ -40,36 +40,34 @@ public class Main extends JFrame implements ActionListener {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		ActionListener e = (event) -> {
+			JButton b = (JButton)event.getSource();
+			
+			switch (b.getName()) {
+			case "b1":JOptionPane.showMessageDialog(null, "Button 1");break;
+			case "b2":JOptionPane.showMessageDialog(null, "Button 2");break;
+			case "b3":JOptionPane.showMessageDialog(null, "Button 3");break;
+			default:
+				break;
+			}
+		}
+		
 		JButton button = new JButton("1");
 		button.setName("b1");
 		button.setBounds(37, 141, 89, 23);
 		contentPane.add(button);
-		button.addActionListener(this);
+		button.addActionListener(e);
 		
 		JButton button_1 = new JButton("2");
 		button_1.setName("b2");
 		button_1.setBounds(136, 141, 89, 23);
 		contentPane.add(button_1);
-		button_1.addActionListener(this);
+		button_1.addActionListener(e);
 		
 		JButton button_2 = new JButton("3");
 		button_2.setName("b3");
 		button_2.setBounds(235, 141, 89, 23);
 		contentPane.add(button_2);
-		button_2.addActionListener(this);
+		button_2.addActionListener(e);
 	}
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		JButton b = (JButton)e.getSource();
-		
-		switch (b.getName()) {
-		case "b1":JOptionPane.showMessageDialog(null, "Button 1");break;
-		case "b2":JOptionPane.showMessageDialog(null, "Button 2");break;
-		case "b3":JOptionPane.showMessageDialog(null, "Button 3");break;
-		default:
-			break;
-		}
-	}
-
 }
