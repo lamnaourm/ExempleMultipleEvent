@@ -50,7 +50,7 @@ public class Main extends JFrame {
 			default:
 				break;
 			}
-		}
+		};
 		
 		JButton button = new JButton("1");
 		button.setName("b1");
